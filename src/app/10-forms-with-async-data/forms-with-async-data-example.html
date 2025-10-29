@@ -1,0 +1,32 @@
+<h2>Forms with Async Data</h2>
+
+@if (user | async; as user) {
+  <form [formGroup]="form" (ngSubmit)="submit()">
+  <label for="firstname">First Name</label>
+  <input id="firstname" formControlName="firstName" />
+  @if (firstName.hasError('required') && firstName.touched) {
+    <div class="error">
+      Required
+    </div>
+  }
+
+  <label for="lastname">Last Name</label>
+  <input id="lastname" formControlName="lastName" />
+  @if (lastName.hasError('required') && lastName.touched) {
+    <div class="error">
+      Required
+    </div>
+  }
+
+  <label for="about">About</label>
+  <textarea id="about" formControlName="about"></textarea>
+
+  <button>Save Profile</button>
+
+  <br />
+  <label>Async Data:</label>
+  <pre>{{user | json}}</pre>
+</form>
+} @else {
+  Loading User Data...
+}

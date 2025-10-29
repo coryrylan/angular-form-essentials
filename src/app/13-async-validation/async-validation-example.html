@@ -1,0 +1,26 @@
+<h2>Forms with Async Validation</h2>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <label for="userName">Username</label>
+  <input id="userName" formControlName="userName" />
+
+  @if (userName.hasError('required') && userName.dirty) {
+    <div class="error">
+      Required
+    </div>
+  }
+
+  @if (userName.hasError('username') && userName.dirty) {
+    <div class="error">
+      Username taken
+    </div>
+  }
+
+  @if (userName.pending) {
+    <div class="info">
+      Checking username...
+    </div>
+  }
+  
+  <button>Save</button>
+</form>

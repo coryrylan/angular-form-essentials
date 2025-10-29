@@ -1,0 +1,17 @@
+<h2>Advanced Validation Management</h2>
+
+<form [formGroup]="userForm" (submit)="saveUser()">
+  <label for="name">Name</label>
+  <input formControlName="name" id="name" />
+  <app-validation-message [control]="userForm.get('name')"></app-validation-message>
+
+  <label for="email">Email</label>
+  <input formControlName="email" id="email" />
+  <app-validation-message [control]="userForm.get('email')"></app-validation-message>
+
+  <label for="profile">Profile Description</label>
+  <textarea formControlName="profile" id="profile"></textarea>
+  <app-validation-message [control]="userForm.get('profile')"></app-validation-message>
+
+  <button type="submit" [disabled]="!userForm.valid">Submit</button>
+</form>

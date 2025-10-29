@@ -1,0 +1,16 @@
+<h2>Input Validation</h2>
+
+<label for="email">Email</label>
+<input [formControl]="email" id="email" type="email" />
+
+@if (email.touched && email.hasError('required')) {
+  <div class="error">
+    email is required
+  </div>
+}
+
+@if (email.touched && email.hasError('email')) {
+  <div class="error">
+    invalid email address
+  </div>
+}

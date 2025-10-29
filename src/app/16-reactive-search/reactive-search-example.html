@@ -1,0 +1,12 @@
+<h2>Reactive Search Component</h2>
+
+<form [formGroup]="searchForm">
+  <label for="search">Search Giphy</label>
+  <input formControlName="search" id="search" />
+</form>
+
+@for (result of results | async; track result.url) {
+  <a [href]="result.url" target="_blank">
+    <img [src]="result.images.downsized.url" />
+  </a>
+}

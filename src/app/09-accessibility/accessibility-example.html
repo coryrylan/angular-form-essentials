@@ -1,0 +1,110 @@
+<h2>Accessibility</h2>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+	<fieldset formGroupName="name">
+    <legend>Legal Name</legend>
+		<label for="first">First Name</label>
+    <input formControlName="first" id="first" />
+ 
+    <label for="last">Last Name</label>
+    <input formControlName="last" id="last" /> 
+  </fieldset>
+
+  <fieldset formGroupName="contact">
+    <legend>Contact Information</legend>
+		<label for="email" id="email-label">Email (required)</label>
+    <input
+      [attr.aria-invalid]="emailIsInvalidAndTouched"
+      formControlName="email"
+      #emailRef
+      id="email"
+      type="email"
+      required />
+    
+    @if (emailIsInvalidAndTouched) {
+      <div
+        role="alert"
+        aria-describedby="email-label"
+        tabindex="0"
+        class="error">
+        Please enter a valid email address.
+      </div>
+    }
+
+    <label for="phone">Phone Number</label>
+    <input formControlName="phone" id="phone" />
+  </fieldset>
+
+  <fieldset formGroupName="password">
+    <legend>Account Information</legend>
+		<label for="password" id="password-label">Password (required)</label>
+    <input
+      [attr.aria-invalid]="passwordIsInvalidAndTouched"
+      formControlName="password"
+      #passwordRef
+      id="password"
+      type="password"
+      required />
+    @if (passwordIsInvalidAndTouched) {
+      <div
+        role="alert"
+        aria-describedby="password-label"
+        class="error">
+        Password must be at least 6 characters.
+      </div>
+    }
+
+    <label for="confirm" id="confirm-label">Confirm Password (required)</label>
+    <input formControlName="confirm" id="confirm" #confirmRef type="password" required />
+
+    @if (passwordsDoNotMatchAndTouched) {
+      <div
+        role="alert"
+        aria-describedby="confirm-label"
+        tabindex="0"
+        class="error">
+        Passwords must match.
+      </div>
+    }
+  </fieldset>
+
+  @if (this.form.invalid && formStatus === FormStatus.Error) {
+    <div
+      role="alert"
+      class="status-error">
+      The form has the following errors that need to be corrected:
+
+      @if (emailIsInvalid) {
+        <button (click)="emailRef.focus()">
+          Please enter a valid email address.
+        </button>
+      }
+
+      @if (passwordIsInvalid) {
+        <button (click)="passwordRef.focus()">
+          Password must be at least 6 characters.
+        </button>
+      }
+
+      @if (passwordsDoNotMatch) {
+        <button (click)="confirmRef.focus()">
+          Passwords must match.
+        </button>
+      }
+    </div>
+  }
+
+  @if (formStatus === FormStatus.Pending) {
+    <div role="status" class="status-pending">
+      Saving profile
+    </div>
+  }
+
+  @if (formStatus === FormStatus.Success) {
+    <div role="status" class="status-success">
+      Profile successfully created
+    </div>
+  }
+
+  <button>Create Account</button>
+</form>

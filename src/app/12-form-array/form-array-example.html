@@ -1,0 +1,21 @@
+<h2>Form Array Example</h2>
+
+@if (orders | async; as orders) {
+  <form [formGroup]="form" (ngSubmit)="submit(orders)" class="checkbox-list">
+  <span class="label">Checkbox List Orders</span>
+  @for (order of orderControls; track order; let i = $index) {
+    <label formArrayName="orders">
+      <input type="checkbox" [formControlName]="i">
+      {{orders[i].name}}
+    </label>
+  }
+  <br>
+  @if (!form.valid) {
+    <div class="error">At least one order must be selected</div>
+  }
+
+  <button [disabled]="!form.valid">submit</button>
+</form>
+} @else {
+  Loading Orders...
+}

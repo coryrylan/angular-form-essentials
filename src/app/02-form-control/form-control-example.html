@@ -1,0 +1,10 @@
+<h2>Form Control</h2>
+
+<label for="name">Name</label>
+<input [formControl]="name" id="name" />
+
+<p>Value: {{name.value}}</p>
+
+<pre>
+  {{name | json}}
+</pre>

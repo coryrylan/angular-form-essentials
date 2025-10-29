@@ -1,0 +1,28 @@
+<h2>Form Group</h2>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <label for="first-name">First Name</label>
+  <input formControlName="firstName" id="first-name" />
+
+  <label for="last-name">Last Name</label>
+  <input formControlName="lastName" id="last-name" />
+
+  <label for="email">Email</label>
+  <input formControlName="email" id="email" />
+
+  @if (email.touched && email.hasError('required')) {
+    <div class="error">
+      email is required
+    </div>
+  }
+
+  @if (email.touched && email.hasError('email')) {
+    <div class="error">
+      invalid email address
+    </div>
+  }
+
+  <button>Submit</button>
+</form>
+
+<pre>{{ form.value | json }}</pre>

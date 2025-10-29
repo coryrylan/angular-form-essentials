@@ -1,0 +1,42 @@
+import { Routes } from '@angular/router';
+import { Home } from './home/home';
+import { HtmlFormsExample } from './01-html-forms/html-forms-example';
+import { FormControlExample } from './02-form-control/form-control-example';
+import { InputValidationExample } from './03-input-validation/input-validation-example';
+import { FormGroupExample } from './04-form-group/form-group-example';
+import { FormBuilderExample } from './05-form-builder/form-builder-example';
+import { CustomValidationExample } from './06-custom-validation/custom-validation-example';
+import { FormGroupValidationExample } from './07-form-group-validation/form-group-validation-example';
+import { AdvancedFormTypesExample } from './08-advanced-form-types/advanced-form-types-example';
+import { AccessibilityExample } from './09-accessibility/accessibility-example';
+import { FormsWithAsyncDataExample } from './10-forms-with-async-data/forms-with-async-data-example';
+import { DynamicFormControlsExample } from './11-dynamic-form-controls/dynamic-form-controls-example';
+import { FormArrayExample } from './12-form-array/form-array-example';
+import { AsyncValidationExample } from './13-async-validation/async-validation-example';
+import { TemplateFormsExample } from './14-template-forms/template-forms-example';
+import { CustomFormControlsExample } from './15-custom-form-controls/custom-form-controls-example';
+import { ReactiveSearchExample } from './16-reactive-search/reactive-search-example';
+import { ReusableFormsExample } from './17-reusable-forms/reusable-forms-example';
+import { AdvancedValidationManagementExample } from './18-advanced-validation-management/advanced-validation-management-example';
+
+export const routes: Routes = [
+  { path: '', component: Home },
+  { path: '01-html-forms', component: HtmlFormsExample },
+  { path: '02-form-control', component: FormControlExample },
+  { path: '03-input-validation', component: InputValidationExample },
+  { path: '04-form-group', component: FormGroupExample },
+  { path: '05-form-builder', component: FormBuilderExample },
+  { path: '06-custom-validation', component: CustomValidationExample },
+  { path: '07-form-group-validation', component: FormGroupValidationExample },
+  { path: '08-advanced-form-types', component: AdvancedFormTypesExample },
+  { path: '09-accessibility', component: AccessibilityExample },
+  { path: '10-forms-with-async-data', component: FormsWithAsyncDataExample },
+  { path: '11-dynamic-form-controls', component: DynamicFormControlsExample },
+  { path: '12-form-array', component: FormArrayExample },
+  { path: '13-async-validation', component: AsyncValidationExample },
+  { path: '14-template-forms', component: TemplateFormsExample },
+  { path: '15-custom-form-controls', component: CustomFormControlsExample },
+  { path: '16-reactive-search', component: ReactiveSearchExample },
+  { path: '17-reusable-forms', component: ReusableFormsExample },
+  { path: '18-advanced-validation-management', component: AdvancedValidationManagementExample }, 
+];
