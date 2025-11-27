@@ -9,5 +9,5 @@ import { RouterOutlet, RouterLink } from '@angular/router';
   imports: [CommonModule, RouterOutlet, RouterLink]
 })
 export class App {
-  title = 'demo-app';
+  title = 'angular-form-essentials';
 }
